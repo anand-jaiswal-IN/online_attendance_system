@@ -11,9 +11,11 @@ import {
   TeacherDashboard,
   HODDashboard,
   Home,
+  AdminDashboard,
 } from "./pages";
 
 import { AttendanceSheet, OverallReport, Subjects } from "./components/teacher";
+// import { YourSubjects } from "./components/student";
 
 import { ProtectedRoute, PublicRoute } from "./wrapper";
 
@@ -62,7 +64,10 @@ function App() {
               <StudentDashboard />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route index element={<Navigate to="your-subjects" replace />} />
+          {/* <Route path="your-subjects" index element={<YourSubjects />} /> */}
+        </Route>
 
         <Route
           path="/dashboard-teacher"
@@ -86,7 +91,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );
