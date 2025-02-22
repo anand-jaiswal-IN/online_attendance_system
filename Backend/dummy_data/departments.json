@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Computer Science",
+    "abbrev": "CS"
+  },
+  {
+    "name": "Information Technology",
+    "abbrev": "IT"
+  },
+  {
+    "name": "Electronics and Communication Engineering",
+    "abbrev": "ECE"
+  },
+  {
+    "name": "Electrical Engineering",
+    "abbrev": "EE"
+  },
+  {
+    "name": "Mechanical Engineering",
+    "abbrev": "ME"
+  },
+  {
+    "name": "Civil Engineering",
+    "abbrev": "CE"
+  },
+  {
+    "name": "Chemical  Engineering",
+    "abbrev": "CHE"
+  }
+]

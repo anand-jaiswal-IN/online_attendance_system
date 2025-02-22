@@ -1,0 +1,392 @@
+[
+  {
+    "name": "Mathematics 100",
+    "subjectCode": "XLJ451",
+    "semester": 5,
+    "departmentId": 4
+  },
+  {
+    "name": "Physics 100",
+    "subjectCode": "GJT391",
+    "semester": 6,
+    "departmentId": 4
+  },
+  {
+    "name": "Chemistry 100",
+    "subjectCode": "IIP803",
+    "semester": 2,
+    "departmentId": 4
+  },
+  {
+    "name": "Biology 100",
+    "subjectCode": "BXC032",
+    "semester": 4,
+    "departmentId": 7
+  },
+  {
+    "name": "History 100",
+    "subjectCode": "VOA097",
+    "semester": 7,
+    "departmentId": 7
+  },
+  {
+    "name": "Literature 100",
+    "subjectCode": "QWD522",
+    "semester": 7,
+    "departmentId": 5
+  },
+  {
+    "name": "Computer Science 100",
+    "subjectCode": "PUJ357",
+    "semester": 4,
+    "departmentId": 6
+  },
+  {
+    "name": "Engineering 100",
+    "subjectCode": "HCS879",
+    "semester": 1,
+    "departmentId": 3
+  },
+  {
+    "name": "Economics 100",
+    "subjectCode": "DET286",
+    "semester": 1,
+    "departmentId": 7
+  },
+  {
+    "name": "Psychology 100",
+    "subjectCode": "NLH520",
+    "semester": 2,
+    "departmentId": 7
+  },
+  {
+    "name": "Mathematics 101",
+    "subjectCode": "OEX855",
+    "semester": 2,
+    "departmentId": 6
+  },
+  {
+    "name": "Physics 101",
+    "subjectCode": "LNI322",
+    "semester": 6,
+    "departmentId": 7
+  },
+  {
+    "name": "Chemistry 101",
+    "subjectCode": "TZJ871",
+    "semester": 8,
+    "departmentId": 7
+  },
+  {
+    "name": "Biology 101",
+    "subjectCode": "BRB939",
+    "semester": 6,
+    "departmentId": 5
+  },
+  {
+    "name": "History 101",
+    "subjectCode": "VWO367",
+    "semester": 4,
+    "departmentId": 7
+  },
+  {
+    "name": "Literature 101",
+    "subjectCode": "PDI134",
+    "semester": 3,
+    "departmentId": 7
+  },
+  {
+    "name": "Computer Science 101",
+    "subjectCode": "SZG301",
+    "semester": 6,
+    "departmentId": 6
+  },
+  {
+    "name": "Engineering 101",
+    "subjectCode": "PDL993",
+    "semester": 5,
+    "departmentId": 2
+  },
+  {
+    "name": "Economics 101",
+    "subjectCode": "USM708",
+    "semester": 6,
+    "departmentId": 6
+  },
+  {
+    "name": "Psychology 101",
+    "subjectCode": "DHT883",
+    "semester": 1,
+    "departmentId": 6
+  },
+  {
+    "name": "Mathematics 102",
+    "subjectCode": "LUA290",
+    "semester": 4,
+    "departmentId": 7
+  },
+  {
+    "name": "Physics 102",
+    "subjectCode": "AXQ840",
+    "semester": 8,
+    "departmentId": 3
+  },
+  {
+    "name": "Chemistry 102",
+    "subjectCode": "LWP600",
+    "semester": 7,
+    "departmentId": 1
+  },
+  {
+    "name": "Biology 102",
+    "subjectCode": "XPZ637",
+    "semester": 6,
+    "departmentId": 2
+  },
+  {
+    "name": "History 102",
+    "subjectCode": "WRH529",
+    "semester": 7,
+    "departmentId": 1
+  },
+  {
+    "name": "Literature 102",
+    "subjectCode": "VLO330",
+    "semester": 8,
+    "departmentId": 6
+  },
+  {
+    "name": "Computer Science 102",
+    "subjectCode": "EWJ657",
+    "semester": 8,
+    "departmentId": 3
+  },
+  {
+    "name": "Engineering 102",
+    "subjectCode": "IDH646",
+    "semester": 2,
+    "departmentId": 6
+  },
+  {
+    "name": "Economics 102",
+    "subjectCode": "AYV909",
+    "semester": 6,
+    "departmentId": 2
+  },
+  {
+    "name": "Psychology 102",
+    "subjectCode": "TCL015",
+    "semester": 3,
+    "departmentId": 7
+  },
+  {
+    "name": "Mathematics 103",
+    "subjectCode": "QDT348",
+    "semester": 4,
+    "departmentId": 7
+  },
+  {
+    "name": "Physics 103",
+    "subjectCode": "DMH521",
+    "semester": 3,
+    "departmentId": 1
+  },
+  {
+    "name": "Chemistry 103",
+    "subjectCode": "EFR411",
+    "semester": 3,
+    "departmentId": 7
+  },
+  {
+    "name": "Biology 103",
+    "subjectCode": "LAD168",
+    "semester": 1,
+    "departmentId": 1
+  },
+  {
+    "name": "History 103",
+    "subjectCode": "UDO575",
+    "semester": 4,
+    "departmentId": 2
+  },
+  {
+    "name": "Literature 103",
+    "subjectCode": "TGN109",
+    "semester": 4,
+    "departmentId": 4
+  },
+  {
+    "name": "Computer Science 103",
+    "subjectCode": "FUA254",
+    "semester": 8,
+    "departmentId": 7
+  },
+  {
+    "name": "Engineering 103",
+    "subjectCode": "XDW651",
+    "semester": 1,
+    "departmentId": 6
+  },
+  {
+    "name": "Economics 103",
+    "subjectCode": "MIZ696",
+    "semester": 4,
+    "departmentId": 1
+  },
+  {
+    "name": "Psychology 103",
+    "subjectCode": "UOK464",
+    "semester": 3,
+    "departmentId": 2
+  },
+  {
+    "name": "Mathematics 104",
+    "subjectCode": "JVE011",
+    "semester": 8,
+    "departmentId": 1
+  },
+  {
+    "name": "Physics 104",
+    "subjectCode": "VPO132",
+    "semester": 7,
+    "departmentId": 2
+  },
+  {
+    "name": "Chemistry 104",
+    "subjectCode": "PTP052",
+    "semester": 5,
+    "departmentId": 5
+  },
+  {
+    "name": "Biology 104",
+    "subjectCode": "NAN986",
+    "semester": 3,
+    "departmentId": 5
+  },
+  {
+    "name": "History 104",
+    "subjectCode": "XAF276",
+    "semester": 5,
+    "departmentId": 2
+  },
+  {
+    "name": "Literature 104",
+    "subjectCode": "GKS134",
+    "semester": 2,
+    "departmentId": 3
+  },
+  {
+    "name": "Computer Science 104",
+    "subjectCode": "GPG370",
+    "semester": 6,
+    "departmentId": 6
+  },
+  {
+    "name": "Engineering 104",
+    "subjectCode": "UPP189",
+    "semester": 4,
+    "departmentId": 1
+  },
+  {
+    "name": "Economics 104",
+    "subjectCode": "LGU238",
+    "semester": 8,
+    "departmentId": 4
+  },
+  {
+    "name": "Psychology 104",
+    "subjectCode": "EUW521",
+    "semester": 6,
+    "departmentId": 4
+  },
+  {
+    "name": "Mathematics 105",
+    "subjectCode": "VSU073",
+    "semester": 8,
+    "departmentId": 6
+  },
+  {
+    "name": "Physics 105",
+    "subjectCode": "NXM622",
+    "semester": 7,
+    "departmentId": 7
+  },
+  {
+    "name": "Chemistry 105",
+    "subjectCode": "RBE305",
+    "semester": 7,
+    "departmentId": 2
+  },
+  {
+    "name": "Biology 105",
+    "subjectCode": "SDY741",
+    "semester": 2,
+    "departmentId": 4
+  },
+  {
+    "name": "History 105",
+    "subjectCode": "HFS581",
+    "semester": 3,
+    "departmentId": 6
+  },
+  {
+    "name": "Literature 105",
+    "subjectCode": "JGD794",
+    "semester": 1,
+    "departmentId": 2
+  },
+  {
+    "name": "Computer Science 105",
+    "subjectCode": "NNO023",
+    "semester": 4,
+    "departmentId": 6
+  },
+  {
+    "name": "Engineering 105",
+    "subjectCode": "LGA668",
+    "semester": 7,
+    "departmentId": 4
+  },
+  {
+    "name": "Economics 105",
+    "subjectCode": "WAB141",
+    "semester": 6,
+    "departmentId": 4
+  },
+  {
+    "name": "Psychology 105",
+    "subjectCode": "UQS369",
+    "semester": 3,
+    "departmentId": 2
+  },
+  {
+    "name": "Mathematics 106",
+    "subjectCode": "SIO766",
+    "semester": 8,
+    "departmentId": 6
+  },
+  {
+    "name": "Physics 106",
+    "subjectCode": "EDC169",
+    "semester": 7,
+    "departmentId": 7
+  },
+  {
+    "name": "Chemistry 106",
+    "subjectCode": "QLN673",
+    "semester": 2,
+    "departmentId": 4
+  },
+  {
+    "name": "Biology 106",
+    "subjectCode": "VXB894",
+    "semester": 5,
+    "departmentId": 2
+  },
+  {
+    "name": "History 106",
+    "subjectCode": "PMC493",
+    "semester": 6,
+    "departmentId": 6
+  }
+]

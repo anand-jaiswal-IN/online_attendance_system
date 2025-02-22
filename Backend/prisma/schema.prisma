@@ -1,0 +1,165 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum EmployeeRole {
+  teacher
+  headOfDepartment
+}
+
+enum Designation {
+  assistantProfessor
+  associateProfessor
+  professor
+  dean
+  associateDean
+  lecturer
+  instructor
+}
+
+enum Gender {
+  male
+  female
+  other
+}
+
+enum Category {
+  general
+  sc
+  st
+  obc
+  others
+}
+
+model AdminUser {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Department {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  abbrev    String     @unique
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  subjects  Subject[]
+  employees Employee[]
+  students  Student[]
+}
+
+model Subject {
+  id               Int               @id @default(autoincrement())
+  name             String
+  description      String?
+  subjectCode      String            @unique // Added unique constraint
+  semester         Int
+  department       Department        @relation(fields: [departmentId], references: [id])
+  departmentId     Int
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  students         Student[]         @relation("StudentSubjects")
+  assignedTeachers AssignedTeacher[]
+}
+
+model Employee {
+  id               Int               @id @default(autoincrement())
+  firstName        String
+  lastName         String
+  username         String            @unique
+  email            String            @unique
+  phoneNumber      String            @unique
+  password         String
+  gender           Gender
+  role             EmployeeRole
+  avtar            String?
+  designation      Designation?
+  qualification    String
+  dateOfBirth      DateTime
+  dateOfJoining    DateTime
+  aadharNumber     String
+  permanentAddress String
+  temporaryAddress String?
+  isVerified       Boolean           @default(false)
+  department       Department        @relation(fields: [departmentId], references: [id])
+  departmentId     Int
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  assignedTeachers AssignedTeacher[] // Changed from subjects_taught
+}
+
+model Student {
+  id               Int          @id @default(autoincrement())
+  firstName        String
+  lastName         String
+  fatherName       String
+  motherName       String
+  rollNumber       String       @unique
+  email            String       @unique
+  phoneNumber      String       @unique
+  avtar            String?
+  password         String
+  aadharNumber     String
+  gender           Gender
+  dateOfBirth      DateTime
+  dateOfJoining    DateTime
+  presentSemester  Int
+  isHosteler       Boolean
+  permanentAddress String
+  temporaryAddress String?
+  isVerified       Boolean      @default(false)
+  category         Category
+  department       Department   @relation(fields: [departmentId], references: [id])
+  departmentId     Int
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  presentSubjects  Subject[]    @relation("StudentSubjects")
+  attendances      Attendance[]
+}
+
+model AssignedTeacher {
+  id                 Int                  @id @default(autoincrement())
+  teacher            Employee             @relation(fields: [teacherId], references: [id])
+  teacherId          Int
+  subject            Subject              @relation(fields: [subjectId], references: [id])
+  subjectId          Int                  @unique
+  semester           Int
+  startTime          String // Format: "HH:MM" (e.g., "09:00")
+  endTime            String // Format: "HH:MM" (e.g., "09:15")
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  attendances        Attendance[]
+  AttendanceDoneDate AttendanceDoneDate[]
+}
+
+model Attendance {
+  id                Int             @id @default(autoincrement())
+  date              DateTime // Date of attendance
+  isPresent         Boolean // true = present
+  assignedTeacher   AssignedTeacher @relation(fields: [assignedTeacherId], references: [id])
+  assignedTeacherId Int
+  student           Student         @relation(fields: [studentId], references: [id])
+  studentId         Int
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+model AttendanceDoneDate {
+  id                Int             @id @default(autoincrement())
+  date              String // Date of attendance in ISO Date Format
+  isAttendanceDone  Boolean
+  assignedTeacher   AssignedTeacher @relation(fields: [assignedTeacherId], references: [id])
+  assignedTeacherId Int
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
