@@ -53,7 +53,7 @@ function ForgotPassword() {
             Submit
           </button>
           <div className="text-center">
-            <Link to="/login" className="text-sm text-pink-600 hover:text-pink-800 transition-colors">
+            <Link to="/auth/login" className="text-sm text-pink-600 hover:text-pink-800 transition-colors">
               Back to Login
             </Link>
           </div>
