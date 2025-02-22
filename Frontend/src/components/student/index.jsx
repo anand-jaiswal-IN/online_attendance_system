@@ -1,14 +1,5 @@
-import LeaveApplicationForm from "./LeaveApplicationForm";
-import LeaveApplicationPage from "./LeaveApplicationPage";
+import StudentSubjects from "./Subjects";
+import StudentLeave from "./Leave";
+import StudentAttendance from "./Attendance";
 
-import NotificationPanel from "./NotificationPanel";
-import Sidebar from "./Sidebar";
-import AttendanceChart from "./AttendanceChart";
-
-export {
-  LeaveApplicationForm,
-  LeaveApplicationPage,
-  NotificationPanel,
-  Sidebar,
-  AttendanceChart,
-};
+export { StudentSubjects, StudentLeave, StudentAttendance };

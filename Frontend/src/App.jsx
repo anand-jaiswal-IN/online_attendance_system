@@ -12,10 +12,15 @@ import {
   HODDashboard,
   Home,
   ForgotPassword,
+  AdminDashboard,
 } from "./pages";
 
 import { AttendanceSheet, OverallReport, Subjects } from "./components/teacher";
-// import { YourSubjects } from "./components/student";
+import {
+  StudentSubjects,
+  StudentLeave,
+  StudentAttendance,
+} from "./components/student";
 
 import { ProtectedRoute, PublicRoute } from "./wrapper";
 
@@ -57,6 +62,7 @@ function App() {
           <Route path="forgot-password" element={<ForgotPassword />} />
         </Route>
 
+        {/* Dashboard student */}
         <Route
           path="/dashboard-student"
           element={
@@ -65,8 +71,10 @@ function App() {
             </ProtectedRoute>
           }
         >
-          <Route index element={<Navigate to="your-subjects" replace />} />
-          {/* <Route path="your-subjects" index element={<YourSubjects />} /> */}
+          <Route index element={<Navigate to="subjects" replace />} />
+          <Route path="subjects" index element={<StudentSubjects />} />
+          <Route path="leave" index element={<StudentLeave />} />
+          <Route path="attendance" index element={<StudentAttendance />} />
         </Route>
 
         <Route

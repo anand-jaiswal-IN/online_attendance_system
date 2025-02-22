@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import api from "../../apis/axiosInstance";
-import { AxiosError, isAxiosError } from "axios";
+import { isAxiosError } from "axios";
 
 function capitalize(name) {
   return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -31,7 +31,6 @@ function AttendanceSheet() {
   const [isLoading, setIsLoading] = useState(true);
   const [students, setStudents] = useState(null);
   const [attendances, setAttendances] = useState([]);
-  const[isSumbitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (!location.state) return;
@@ -70,33 +69,23 @@ function AttendanceSheet() {
   }, [location.state]);
 
   async function submitAttendances(attendances) {
-    setIsSubmitting(true);
-    
     try {
-      await api
-        .post("/teacher/submit-attendances", {
-          date: new Date(),
-          assignedTeacherId: location.state.response.id,
-          attendances,
-        })
-        .then((response) => {
-          isSumbitting(false)
-          alert(response.data.message);
-          navigate("/dashboard-teacher/subjects");
-        })
-        .catch((error) => {
-          if (isAxiosError(error)) {
-            alert(error.response.data.message);
-          }
-          console.error(error);
-        });
+      const response = await api.post("/teacher/submit-attendances", {
+        date: new Date(),
+        assignedTeacherId: location.state.response.id,
+        attendances: attendances,
+      });
+      console.log(response);
+
+      if (response.data.status === 200) {
+        alert(response.data.message);
+        navigate("/dashboard-teacher/subjects");
+      }
     } catch (error) {
       if (isAxiosError(error)) {
         alert(error.response.data.message);
       }
       console.error(error);
-    } finally {
-      setIsSubmitting(false);
     }
   }
 
@@ -172,10 +161,11 @@ function AttendanceSheet() {
                           : "bg-gray-400 text-black"
                       }`}
                       onClick={() => {
-                        setAttendances((prevAttendances) => {
-                          prevAttendances[index].isPresent = true;
-                          return [...prevAttendances];
-                        });
+                        setAttendances((prevAttendances) =>
+                          prevAttendances.map((att, i) =>
+                            i === index ? { ...att, isPresent: true } : att
+                          )
+                        );
                       }}
                     >
                       Present
@@ -187,10 +177,11 @@ function AttendanceSheet() {
                           : "bg-red-500 text-white"
                       }`}
                       onClick={() => {
-                        setAttendances((prevAttendances) => {
-                          prevAttendances[index].isPresent = false;
-                          return [...prevAttendances];
-                        });
+                        setAttendances((prevAttendances) =>
+                          prevAttendances.map((att, i) =>
+                            i === index ? { ...att, isPresent: false } : att
+                          )
+                        );
                       }}
                     >
                       Absent
@@ -206,17 +197,15 @@ function AttendanceSheet() {
       )}
       <br />
       <br />
-      
-        <button
+
+      <button
         className="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded cursor-pointer"
         onClick={() => {
           // submit attendances to database
           submitAttendances(attendances);
         }}
       >
-        {
-          isSumbitting ? "Submitting ..." : "Submit Attendances"
-        }
+        Submit Attendances
       </button>
     </>
   );
