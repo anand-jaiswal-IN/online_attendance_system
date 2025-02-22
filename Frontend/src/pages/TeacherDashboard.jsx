@@ -11,7 +11,6 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function TeacherDashboard() {
   const location = useLocation(); // Tracks route changes
-
   const teacherData = JSON.parse(localStorage.getItem("user"));
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const menuItems = [

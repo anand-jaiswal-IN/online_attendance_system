@@ -16,7 +16,7 @@ import useAlert from "../hooks/alert";
 
 function Login() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const [loading, setLoading] = useState(false)
   const [userType, setUserType] = useState("student");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -57,6 +57,8 @@ function Login() {
         alert("Please fill in all fields");
         return;
       }
+      setLoading(true);
+
       const response = await api.post("/auth/login", {
         username: username,
         password: password,
@@ -72,6 +74,7 @@ function Login() {
       });
       localStorage.setItem("user", JSON.stringify(userResponse.data.data));
       showAlert("Login successful", "success");
+
 
       switch (userType) {
         case "student":
@@ -89,6 +92,8 @@ function Login() {
       return;
     } catch (error) {
       showAlert("Wrong Credentials", "error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -199,7 +204,14 @@ function Login() {
               type="submit"
               className="w-full cursor-pointer bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
             >
-              Login
+              {loading ? (
+                <div className="flex gap-2 justify-center items-center">
+            <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-white"></div> 
+                <span>logging...</span>
+            </div>
+          ) : (
+            "Login"
+          )}
             </button>
 
             <div className="text-center">
