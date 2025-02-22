@@ -13,6 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import api from "../apis/axiosInstance";
 import Alert from "../components/ui/Alert";
 import useAlert from "../hooks/alert";
+import ForgotPassword from "./ForgotPassword";
 
 function Login() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -216,7 +217,7 @@ function Login() {
 
             <div className="text-center">
               <Link
-                to="/forgot-password"
+                to="/auth/forgot-password"
                 className="text-sm text-pink-600 hover:text-pink-800 transition-colors"
               >
                 Forgot your password?
