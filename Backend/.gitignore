@@ -2,3 +2,4 @@
 node_modules
 python_script
 bun.lockb
+package-lock.json
