@@ -11,6 +11,7 @@ import {
   TeacherDashboard,
   HODDashboard,
   Home,
+  ForgotPassword,
 } from "./pages";
 
 import { AttendanceSheet, OverallReport, Subjects } from "./components/teacher";
@@ -52,7 +53,7 @@ function App() {
               </PublicRoute>
             }
           />
-          {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
+          <Route path="forgot-password" element={<ForgotPassword />} />
         </Route>
 
         <Route

@@ -10,7 +10,7 @@ import {
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function TeacherDashboard() {
-  const location = useLocation(); // Tracks route changes
+  const location = useLocation(); 
 
   const teacherData = JSON.parse(localStorage.getItem("user"));
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -42,10 +42,10 @@ function TeacherDashboard() {
         }`}
       >
         <div className="p-6 bg-gradient-to-r from-pink-400 to-purple-600">
-          <h2 className="text-white font-bold text-2xl font-poppins">
+          <h2 className="text-white font-[anzo5] text-2xl ">
             {teacherData.firstName + " " + teacherData.lastName}
           </h2>
-          <p className="text-white text-sm mt-1 font-bold">
+          <p className="text-white text-sm mt-1 font-[anzo6]">
             Teacher at Department of {teacherData.department.name}
           </p>
         </div>
