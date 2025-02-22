@@ -10,8 +10,8 @@ import {
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function TeacherDashboard() {
-  const location = useLocation(); 
-
+const location = useLocation();
+  
   const teacherData = JSON.parse(localStorage.getItem("user"));
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const menuItems = [

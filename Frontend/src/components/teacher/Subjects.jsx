@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Subjects() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true)
 
   const isWithinTimeRange = (startTime, endTime) => {
     const currentTime = new Date();
@@ -32,10 +33,11 @@ function Subjects() {
         })
         .then((response) => {
           setAssignedSubjects(response.data.data);
+          setLoading(false)
         })
         .catch((error) => {
           console.error(error);
-        });
+        })
     }
     fetchTeacherAssignedSubjects();
   }, []);
@@ -68,6 +70,12 @@ function Subjects() {
         })} */}
       </div>
 
+      {loading ? <>
+        
+          <div className="flex justify-center items-center max-h-screen">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+        </div>
+      </> :
       <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">
           Today's Schedule
@@ -128,7 +136,7 @@ function Subjects() {
             );
           })}
         </div>
-      </div>
+      </div>}
     </div>
   );
 }

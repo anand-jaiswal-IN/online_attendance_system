@@ -31,6 +31,7 @@ function AttendanceSheet() {
   const [isLoading, setIsLoading] = useState(true);
   const [students, setStudents] = useState(null);
   const [attendances, setAttendances] = useState([]);
+  const[isSumbitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (!location.state) return;
@@ -69,22 +70,34 @@ function AttendanceSheet() {
   }, [location.state]);
 
   async function submitAttendances(attendances) {
-    await api
-      .post("/teacher/submit-attendances", {
-        date: new Date(),
-        assignedTeacherId: location.state.response.id,
-        attendances,
-      })
-      .then((response) => {
-        alert(response.data.message);
-        navigate("/dashboard-teacher/subjects");
-      })
-      .catch((error) => {
-        if (isAxiosError(error)) {
-          alert(error.response.data.message);
-        }
-        console.error(error);
-      });
+    setIsSubmitting(true);
+    
+    try {
+      await api
+        .post("/teacher/submit-attendances", {
+          date: new Date(),
+          assignedTeacherId: location.state.response.id,
+          attendances,
+        })
+        .then((response) => {
+          isSumbitting(false)
+          alert(response.data.message);
+          navigate("/dashboard-teacher/subjects");
+        })
+        .catch((error) => {
+          if (isAxiosError(error)) {
+            alert(error.response.data.message);
+          }
+          console.error(error);
+        });
+    } catch (error) {
+      if (isAxiosError(error)) {
+        alert(error.response.data.message);
+      }
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -193,14 +206,17 @@ function AttendanceSheet() {
       )}
       <br />
       <br />
-      <button
+      
+        <button
         className="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded cursor-pointer"
         onClick={() => {
           // submit attendances to database
           submitAttendances(attendances);
         }}
       >
-        Submit Data
+        {
+          isSumbitting ? "Submitting ..." : "Submit Attendances"
+        }
       </button>
     </>
   );
