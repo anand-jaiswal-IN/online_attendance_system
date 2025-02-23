@@ -122,13 +122,25 @@ CREATE TABLE "AssignedTeacher" (
 CREATE TABLE "Attendance" (
     "id" SERIAL NOT NULL,
     "date" TIMESTAMP(3) NOT NULL,
-    "status" BOOLEAN NOT NULL,
+    "isPresent" BOOLEAN NOT NULL,
     "assignedTeacherId" INTEGER NOT NULL,
     "studentId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Attendance_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AttendanceDoneDate" (
+    "id" SERIAL NOT NULL,
+    "date" TEXT NOT NULL,
+    "isAttendanceDone" BOOLEAN NOT NULL,
+    "assignedTeacherId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "AttendanceDoneDate_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -195,6 +207,9 @@ ALTER TABLE "Attendance" ADD CONSTRAINT "Attendance_assignedTeacherId_fkey" FORE
 
 -- AddForeignKey
 ALTER TABLE "Attendance" ADD CONSTRAINT "Attendance_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AttendanceDoneDate" ADD CONSTRAINT "AttendanceDoneDate_assignedTeacherId_fkey" FOREIGN KEY ("assignedTeacherId") REFERENCES "AssignedTeacher"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_StudentSubjects" ADD CONSTRAINT "_StudentSubjects_A_fkey" FOREIGN KEY ("A") REFERENCES "Student"("id") ON DELETE CASCADE ON UPDATE CASCADE;

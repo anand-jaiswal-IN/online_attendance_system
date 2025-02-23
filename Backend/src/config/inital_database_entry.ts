@@ -84,7 +84,7 @@ async function create_initial_subject_entry() {
   }
 }
 export async function create_inital_database_entry() {
-  console.log("Creating initial database entry...");
+  // console.log("Creating initial database entry...");
   // console.log("Creating initial database entry of department...");
   // await create_inital_department_entry();
   // console.log("Done database entry of department...");
